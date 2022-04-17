@@ -1,0 +1,687 @@
+{
+	"info": {
+		"_postman_id": "0d88bea1-3d87-4c65-9952-19da236b3b46",
+		"name": "FAVS",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "LOGIN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const json = pm.response.json()",
+							"pm.collectionVariables.set(\"token\", json.token);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usuario\": \"jaky_202_@hotmail.com\",\n    \"contrasenia\": \"12@4567.\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/auth/local/login",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"local",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateUsuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usuario\": \"jaky_202_@hotmail.com\",\r\n    \"contrasenia\": \"12@4567.\",\r\n    \"nombre\": \"Matta Angel\",\r\n    \"apellidoPaterno\": \"Sonny\",\r\n    \"apellidoMaterno\": \"Barrientos\",\r\n    \"correo\": \"jaky_202_@hotmail.com\",\r\n    \"direccion\": \"los rosales de pro Mz p1 lt 19\",\r\n    \"celular\": \"90291656\",\r\n    \"nroDocumento\": \"11422003\",\r\n    \"estado\": \"A\",\r\n    \"fechaCreacion\": \"2022-03-07T06:30:27.128Z\",\r\n    \"fechaModificacion\": \"2022-03-07T06:30:27.128Z\",\r\n    \"idUsuarioCreacion\": 1,\r\n    \"idUsuarioModificacion\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/auth",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListUsuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/corePersona",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"corePersona"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetUsuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/corePersona/625b8574962ef535878dcfd4",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"corePersona",
+						"625b8574962ef535878dcfd4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateUsuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"nombre\": \"Tayra Milu\",\r\n    \"apellidoPaterno\": \"Diaz\",\r\n    \"apellidoMaterno\": \"Barrientos\",\r\n    \"correo\": \"jaky_202_@hotmail.com\",\r\n    \"direccion\": \"los rosales de pro Mz p1 lt 19\",\r\n    \"celular\": \"90291656\",\r\n    \"nroDocumento\": \"11420003\",\r\n    \"estado\": \"A\",\r\n    \"fechaCreacion\": \"2022-03-07T06:30:27.128Z\",\r\n    \"fechaModificacion\": \"2022-03-07T06:30:27.128Z\",\r\n    \"idUsuarioCreacion\": 1,\r\n    \"idUsuarioModificacion\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/corePersona/625b91a7433b23dd40adef61",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"corePersona",
+						"625b91a7433b23dd40adef61"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteUsuario",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/corePersona/625b91a7433b23dd40adef61",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"corePersona",
+						"625b91a7433b23dd40adef61"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateLista",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCorePersona\": \"625b8574962ef535878dcfd4\",\r\n    \"nombre\": \"Regueton\",\r\n    \"descripcion\": \"Old School\",\r\n    \"observacion\": \"de la vieja escuela\",\r\n    \"estado\": \"A\",\r\n    \"fechaCreacion\": \"2022-03-07T06:30:27.128Z\",\r\n    \"fechaModificacion\": \"2022-03-07T06:30:27.128Z\",\r\n    \"idUsuarioCreacion\": 1,\r\n    \"idUsuarioModificacion\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/favorito/favs",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"favorito",
+						"favs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetLista",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/favorito/favs/625b966331a74cac63aa48e1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"favorito",
+						"favs",
+						"625b966331a74cac63aa48e1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListLista",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/favorito/favs",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"favorito",
+						"favs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateLista",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idCorePersona\": \"625b8574962ef535878dcfd4\",\r\n    \"nombre\": \"Regueton Old school\",\r\n    \"descripcion\": \"Don omar\",\r\n    \"observacion\": \"de la vieja escuela\",\r\n    \"estado\": \"A\",\r\n    \"fechaCreacion\": \"2022-03-07T06:30:27.128Z\",\r\n    \"fechaModificacion\": \"2022-03-07T06:30:27.128Z\",\r\n    \"idUsuarioCreacion\": 1,\r\n    \"idUsuarioModificacion\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/favorito/favs/625b966331a74cac63aa48e1",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"favorito",
+						"favs",
+						"625b966331a74cac63aa48e1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DeleteLista",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/favorito/favs/625b9a0d31a74cac63aa48e9",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"favorito",
+						"favs",
+						"625b9a0d31a74cac63aa48e9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateElementoLista",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idFavorito\": \"625b966331a74cac63aa48e1\",\r\n    \"titulo\": \"Ojitos chiquitos\",\r\n    \"descripción\": \"Don Omar\",\r\n    \"enlace\": \"https://youtu.be/yYMEMTZp2QA\",\r\n    \"estado\": \"A\",\r\n    \"fechaCreacion\": \"2022-03-07T06:30:27.128Z\",\r\n    \"fechaModificacion\": \"2022-03-07T06:30:27.128Z\",\r\n    \"idUsuarioCreacion\": 1,\r\n    \"idUsuarioModificacion\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/detalleFavorito",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"detalleFavorito"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "UpdateElementoLista",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idFavorito\": \"625b966331a74cac63aa48e1\",\r\n    \"titulo\": \"Rompe La Cintura el cuerpo\",\r\n    \"descripción\": \"Alexis y Fido Los reyes\",\r\n    \"enlace\": \"https://youtu.be/bMCwoHNm_d4\",\r\n    \"estado\": \"A\",\r\n    \"fechaCreacion\": \"2022-03-07T06:30:27.128Z\",\r\n    \"fechaModificacion\": \"2022-03-07T06:30:27.128Z\",\r\n    \"idUsuarioCreacion\": 1,\r\n    \"idUsuarioModificacion\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/detalleFavorito/625b9cdf5964937646267867",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"detalleFavorito",
+						"625b9cdf5964937646267867"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetElementoLista",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/detalleFavorito/625b9cdf5964937646267867",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"detalleFavorito",
+						"625b9cdf5964937646267867"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ListElementoLista",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/detalleFavorito",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"detalleFavorito"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ObtenerListElementosXUsuario",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{token}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/api/v1/favorito/detalle/625b8574962ef535878dcfd4",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"api",
+						"v1",
+						"favorito",
+						"detalle",
+						"625b8574962ef535878dcfd4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:3000"
+		},
+		{
+			"key": "token",
+			"value": ""
+		}
+	]
+}
