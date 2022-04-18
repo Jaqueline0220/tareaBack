@@ -5,7 +5,9 @@ const { log } = require('../helpers/logger');
 
 const envSchema = z.object({
   PORT: z.preprocess((n) => parseInt(n, 10), z.number()).default(4000),
-  NODE_ENV: z.enum(['development', 'production']).default('development'),
+  NODE_ENV: z
+    .enum(['development', 'production', 'test'])
+    .default('development'),
   MONGO_NAME: z.string(),
   MONGO_USER: z.string(),
   MONGO_PASS: z.string(),

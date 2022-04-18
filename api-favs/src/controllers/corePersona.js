@@ -23,7 +23,7 @@ const create = async (req, res, next) => {
     const user = await CorePersona.create(body);
     const auth = {
       idCorePersona: user.id,
-      usuario: body.correo,
+      usuario: body.usuario,
       contrasenia: body.contrasenia,
       fechaInicioSesion: body.fechaCreacion,
       fechaCreacion: body.fechaCreacion,
